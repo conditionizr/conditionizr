@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Conditionizr</title>
+	<meta name="author" content="@toddmotto, @markgdyr">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="js/conditionizr.min.js"></script>
+	<script>
+	$(function() {
+		$('head').conditionizr({
+			debug      : true,
+			scriptSrc  : 'js/conditionizr/',
+			styleSrc   : 'css/conditionizr/',
+			ieLessThan : { active: false, version: '9', scripts: false, styles: false, class: true, customScript: 'none'},
+			chrome     : { scripts: false, styles: false, class: true, customScript: 'none' },
+			safari     : { scripts: false, styles: false, class: true, customScript: 'none' },
+			opera      : { scripts: false, styles: false, class: true, customScript: 'none' },
+			firefox    : { scripts: false, styles: false, class: true, customScript: 'none' },
+			ie10       : { scripts: false, styles: false, class: true, customScript: 'none' },
+			ie9        : { scripts: false, styles: false, class: true, customScript: 'none' },
+			ie8        : { scripts: false, styles: false, class: true, customScript: 'none' },
+			ie7        : { scripts: false, styles: false, class: true, customScript: 'none' },
+			ie6        : { scripts: false, styles: false, class: true, customScript: 'none' },
+			retina     : { scripts: false, styles: false, class: true, customScript: 'none' },
+			mac    : true,
+			win    : true,
+			x11    : true,
+			linux  : true
+		});
+	});
+	</script>
+</head>
+<body>
+</body>
+</html>
