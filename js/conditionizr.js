@@ -19,17 +19,17 @@
 			debug      : false,
 			scriptSrc  : 'js/conditionizr/',
 			styleSrc   : 'css/conditionizr/',
-			ieLessThan : { active: false, version: '9', scripts: false, styles: false, class: true, customScript: 'none'},
-			chrome     : { scripts: false, styles: false, class: true, customScript: 'none' },
-			safari     : { scripts: false, styles: false, class: true, customScript: 'none' },
-			opera      : { scripts: false, styles: false, class: true, customScript: 'none' },
-			firefox    : { scripts: false, styles: false, class: true, customScript: 'none' },
-			ie10       : { scripts: false, styles: false, class: true, customScript: 'none' },
-			ie9        : { scripts: false, styles: false, class: true, customScript: 'none' },
-			ie8        : { scripts: false, styles: false, class: true, customScript: 'none' },
-			ie7        : { scripts: false, styles: false, class: true, customScript: 'none' },
-			ie6        : { scripts: false, styles: false, class: true, customScript: 'none' },
-			retina     : { scripts: false, styles: false, class: true, customScript: 'none' },
+			ieLessThan : { active: false, version: '9', scripts: false, styles: false, classes: true, customScript: 'none'},
+			chrome     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			safari     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			opera      : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			firefox    : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie10       : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie9        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie8        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie7        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie6        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			retina     : { scripts: false, styles: false, classes: true, customScript: 'none' },
 			mac    : true,
 			win    : true,
 			x11    : true,
@@ -45,7 +45,7 @@
 			function conditionizrLoader() {
 				$.each(browserSettings, function (resourceType, val) {
 						
-					if (resourceType === 'class' && val === true) {
+					if (resourceType === 'classes' && val === true) {
 						document.getElementsByTagName('html')[0].className += ' ' + theBrowser;
 					}
 					
