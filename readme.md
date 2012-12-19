@@ -28,7 +28,7 @@ A typical setup for targeting IE7 would be as follows, giving you jQuery options
     ie7: {
     	styles: true, 
     	scripts: true, 
-    	class: true 
+    	classes: true 
     }
     
 
@@ -76,7 +76,7 @@ Another powerful feature within Conditionizr is specifying a Less Than IE specif
     	version: '9', 
     	scripts: false, 
     	styles: false, 
-    	class: true 
+    	classes: true 
     }
     
 
@@ -101,7 +101,7 @@ Alongside retina detection and loading, it has it's own loading script, which wh
     retina: { 
     	styles: true, 
     	scripts: true, 
-    	class: true 
+    	classes: true 
     }
     
 
@@ -133,17 +133,17 @@ Get started with Conditionizr with the below code snippet:
 				debug      : false,
 				scriptSrc  : 'js/conditionizr/',
 				styleSrc   : 'css/conditionizr/',
-				ieLessThan : { active: false, version: '9', scripts: false, styles: false, class: true, customScript: 'none'},
-				chrome     : { scripts: false, styles: false, class: true, customScript: 'none' },
-				safari     : { scripts: false, styles: false, class: true, customScript: 'none' },
-				opera      : { scripts: false, styles: false, class: true, customScript: 'none' },
-				firefox    : { scripts: false, styles: false, class: true, customScript: 'none' },
-				ie10       : { scripts: false, styles: false, class: true, customScript: 'none' },
-				ie9        : { scripts: false, styles: false, class: true, customScript: 'none' },
-				ie8        : { scripts: false, styles: false, class: true, customScript: 'none' },
-				ie7        : { scripts: false, styles: false, class: true, customScript: 'none' },
-				ie6        : { scripts: false, styles: false, class: true, customScript: 'none' },
-				retina     : { scripts: false, styles: false, class: true, customScript: 'none' },
+				ieLessThan : { active: false, version: '9', scripts: false, styles: false, classes: true, customScript: 'none'},
+				chrome     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				safari     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				opera      : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				firefox    : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				ie10       : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				ie9        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				ie8        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				ie7        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				ie6        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+				retina     : { scripts: false, styles: false, classes: true, customScript: 'none' },
 				mac        : true,
 				win        : true,
 				x11        : true,
