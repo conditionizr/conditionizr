@@ -3,33 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Conditionizr</title>
-	<meta name="author" content="@toddmotto, @markgdyr">
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="js/conditionizr.min.js"></script>
+	<meta name="author" content="@toddmotto, @markgdyr, @mlaritz">
+	<script src="js/conditionizr.js"></script>
 	<script>
-	$(function() {
-		$('head').conditionizr({
+		conditionizr({
 			debug      : true,
 			scriptSrc  : 'js/conditionizr/',
 			styleSrc   : 'css/conditionizr/',
-			ieLessThan : { active: false, version: '9', scripts: false, styles: false, classes: true, customScript: 'none'},
-			chrome     : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			safari     : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			opera      : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			firefox    : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			ie10       : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			ie9        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			ie8        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			ie7        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			ie6        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-			retina     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ieLessThan : { active: true, version: '9', scripts: true, styles: true, classes: true, customScript: 'none'},
+			chrome     : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			safari     : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			opera      : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			firefox    : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			ie10       : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			ie9        : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			ie8        : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			ie7        : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			ie6        : { scripts: true, styles: true, classes: true, customScript: 'none' },
+			retina     : { scripts: true, styles: true, classes: true, customScript: 'none' },
 			mac    : true,
 			win    : true,
 			x11    : true,
 			linux  : true
 		});
-	});
 	</script>
 </head>
 <body>

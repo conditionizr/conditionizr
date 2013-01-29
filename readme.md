@@ -1,13 +1,13 @@
 # Meet Conditionizr, the conditional free legacy, retina, script and style loader.
 
-Conditionizr is an intelligent jQuery plugin, that detects the end-users browser and pixel ratio, allowing you to serve specific conditional JavaScript and CSS files they need.
+Conditionizr is a fast and lightweight (3KB) javascript utility that detects the end-users browser and pixel ratio, allowing you to serve specific conditional JavaScript and CSS files they need.
 
 <http://conditionizr.com>
 
 
 ## Integrating Conditionizr
 
-Conditionizr is a jQuery plugin with simple customisable options that makes integrating into any project a breeze. Conditionizr is built mainly on JavaScript, but requires jQuery to run, we recommend the latest version over at Google's CDN. After [downloading][1] Conditionizr, place the main script inside the  tag. We then recommend running your initiating script directly after your main JavaScript files using the `$('head').conditionizr();` call. 
+Conditionizr is a fast and powerful javascript utility with simple customisable options that makes integrating into any project a breeze. After downloading Conditionizr, place the main script inside the `<head>` tag, near the top of your scripts so it will run first. We then recommend running your initiating script directly after your main JavaScript files using the `conditionizr();` to call.
 
 ## HTML classes (Internet Explorer)
 
@@ -21,9 +21,9 @@ Using `userAgent` detection for modern browser sniffing can provide an effective
 
 ## Conditional script and style loading
 
-Conditionizr's loading script allows the user to target individual browsers, and load specific content for them. 
+Conditionizr's loading script allows the user to target individual browsers, and load specific content for them.
 
-A typical setup for targeting IE7 would be as follows, giving you jQuery options for scripts, styles and classes. Setting each option to `true` activates the conditional loader, and providing your scripts are on the server, the conditional files will be loaded by Conditionizr. 
+A typical setup for targeting IE7 would be as follows, giving you options for scripts, styles and classes. Setting each option to `true` activates the conditional loader, and providing your scripts are on the server, the conditional files will be loaded by Conditionizr.
 
     ie7: {
 		styles: true, // Enable styles for IE7
@@ -128,27 +128,26 @@ Get started with Conditionizr with the below code snippet:
 
     
     <script>
-		$(function() {
-			$('head').conditionizr({
-				debug      : false,
-				scriptSrc  : 'js/conditionizr/',
-				styleSrc   : 'css/conditionizr/',
-				ieLessThan : { active: false, version: '9', scripts: false, styles: false, classes: true, customScript: 'none'},
-				chrome     : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				safari     : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				opera      : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				firefox    : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				ie10       : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				ie9        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				ie8        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				ie7        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				ie6        : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				retina     : { scripts: false, styles: false, classes: true, customScript: 'none' },
-				mac        : true,
-				win        : true,
-				x11        : true,
-				linux      : true
-			});
+	conditionizr({
+			debug      : false,
+			scriptSrc  : 'js/conditionizr/',
+			styleSrc   : 'css/conditionizr/',
+			ieLessThan : { active: false, version: '9', scripts: false, styles: false, classes: true, customScript: 'none'},
+			chrome     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			safari     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			opera      : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			firefox    : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie10       : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie9        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie8        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie7        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			ie6        : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			retina     : { scripts: false, styles: false, classes: true, customScript: 'none' },
+			mac        : true,
+			win        : true,
+			x11        : true,
+			linux      : true
+
 		});
 		</script>    
     
