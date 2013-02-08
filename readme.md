@@ -1,6 +1,6 @@
 # Conditionizr
 
-Conditionizr is a fast and lightweight (3KB) javascript utility that detects the end-users browser and pixel ratio, allowing you to serve specific conditional JavaScript and CSS files they need.
+Conditionizr is a fast and lightweight (4KB) javascript utility that detects the end-users browser and pixel ratio, allowing you to serve specific conditional JavaScript and CSS files they need.
 
 - Creators: [Todd Motto](http://toddmotto.com/), [Mark Goodyear](http://markgoodyear.com/)
 - Twitter: [@toddmotto](http://twitter.com/toddmotto), [@markgdyr](http://twitter.com/markgdyr), [@conditionizr](http://conditionizr.com)
