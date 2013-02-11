@@ -1,5 +1,8 @@
 # Changelog
 
+### 2.1.1
+- Retina fixes
+
 ### 2.1.0
 - Allow multiple custom scripts to be loaded
 - Optimise customScript with boolean operators

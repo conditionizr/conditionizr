@@ -1,5 +1,5 @@
 /*
-	conditionizr v2.1.0
+	conditionizr v2.1.1
 	conditionizr.com
 	
 	by Todd Motto & Mark Goodyear
@@ -154,11 +154,7 @@
 		
 	}
 	
-	if (window.devicePixelRatio >= 2 || (
-		window.matchMedia('(min-resolution: 2dppx)').matches ||
-		window.matchMedia('(-moz-device-pixel-ratio: 2)').matches ||
-		window.matchMedia('(-o-device-pixel-ratio: 2/1)').matches
-	)) {
+	if (window.devicePixelRatio >= 2) {
 	
 		var browserSettings = settings.retina;
 		var theBrowser = 'retina';

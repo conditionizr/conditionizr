@@ -4,7 +4,7 @@ Conditionizr is a fast and lightweight (4KB) javascript utility that detects the
 
 - Creators: [Todd Motto](http://toddmotto.com/), [Mark Goodyear](http://markgoodyear.com/)
 - Twitter: [@toddmotto](http://twitter.com/toddmotto), [@markgdyr](http://twitter.com/markgdyr), [@conditionizr](http://conditionizr.com)
-- Contributors: [Datrio](https://github.com/Datrio), [MLaritz](https://github.com/MLaritz)
+- Contributors: [MLaritz](https://github.com/MLaritz)
 - Homepage: <http://conditionizr.com>
 
 ## Documentation
