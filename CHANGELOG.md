@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.2.0
+- Touch detection, scripts and style loading
+- Minor optimisations
+
 ### 2.1.1
 - Retina fixes
 

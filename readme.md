@@ -4,7 +4,7 @@ Conditionizr is a fast and lightweight (4KB) javascript utility that detects the
 
 - Creators: [Todd Motto](http://toddmotto.com/), [Mark Goodyear](http://markgoodyear.com/)
 - Twitter: [@toddmotto](http://twitter.com/toddmotto), [@markgdyr](http://twitter.com/markgdyr), [@conditionizr](http://conditionizr.com)
-- Contributors: [MLaritz](https://github.com/MLaritz)
+- Contributors: [MLaritz](https://github.com/MLaritz), [ampersarnie](https://github.com/ampersarnie)
 - Homepage: <http://conditionizr.com>
 
 ## Documentation
@@ -23,6 +23,12 @@ Having an optional script and stylesheet per legacy browser is fantastic, but wh
 
 #### Less than IE version loader
 Alongside specific IE script and style loader, we've included an optional setting to specify a 'less than IE' version. This means that you could load a polyfill or certain script that you would like to apply to all 'less than' versions. If you were to declare 'IE9' as your less than, it would apply a 'lt-ie9' class for IE6, IE7 and IE8. Any scripts would also apply to these browser versions.
+
+#### Retina loading and classes
+Conditionizr automatically detects a retina device and tells the browser instantly, adding a 'retina' class. For devices that aren't retina, it adds a 'no-retina' class. Hook your retina optimisations for CSS directly from the HTML tag. You can optionally load retina specific scripts and stylesheets too.
+
+#### Touch detection
+Conditionizr knows if the device in use supports touch events, allowing you to serve conditional scripts and styles. You'll also get a 'touch' HTML class if the device supports touch, and also the 'no-touch' should the device not support it.
 
 #### Markup free
 Conditionizr is markup free, just simply include the plugin in your page, and let it work it's magic. Conditionizr requires very little configuration, as it's built using a JavaScript plugin style, making the process seamless. Conditionizr comes with a few simple options, giving you the ability to turn scripts, styles, custom scripts on and off, and lots of other tools in just a few minutes. The conditional scripts and styles are served dynamically, keeping markup smart and clean.
