@@ -8,7 +8,7 @@ Conditionizr is a fast and lightweight (3KB) javascript utility that detects the
 - Homepage: <http://conditionizr.com>
 
 ## Documentation
-Check out the documentation over at <http://conditionizr.com/docs.php>
+Check out the documentation over at <http://conditionizr.com/docs.html>
 
 ## Features
 
