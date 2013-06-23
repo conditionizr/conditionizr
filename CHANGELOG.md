@@ -1,5 +1,10 @@
 # Changelog
 
+### 3.0.0
+- Bug fixes
+- Optimisations
+- No more UA sniffing for IE
+
 ### 2.2.0
 - Touch detection, scripts and style loading
 - Minor optimisations
