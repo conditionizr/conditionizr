@@ -1,0 +1,33 @@
+{
+	"name": "Conditionizr",
+	"title": "Conditionizr",
+	"year" : "2013",
+	"description": "Browser vendor, touch and retina conditional loading.",
+	"keywords": [
+		"legacy",
+		"touch",
+		"conditional"
+	],
+	"version": "3.0.0",
+	"authors": [
+		{
+			"name": "Todd Motto",
+			"email": "todd@toddmotto.com",
+			"twitter" : "@toddmotto",
+			"url": "http://toddmotto.com",
+			"github" : "https://github.com/toddmotto"
+		},
+		{
+			"name": "Mark Goodyear",
+			"email": "hello@markgoodyear.com",
+			"twitter" : "@markgdyr",
+			"url": "http://markgoodyear.com",
+			"github" : "https://github.com/markgoodyear"
+		}
+	],
+	"license": {
+		"type": "MIT"
+	},
+	"homepage": "http://conditionizr.com",
+	"download": "https://github.com/conditionizr/conditionizr/archive/master.zip"
+}

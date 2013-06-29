@@ -1,0 +1,29 @@
+{
+  "name": "Conditionizr",
+  "title": "Conditionizr",
+  "description": "Browser vendor, touch and retina conditional loading.",
+  "authors": [
+    {
+      "name": "Todd Motto",
+      "email": "todd@toddmotto.com",
+      "twitter" : "@toddmotto",
+      "url": "http://toddmotto.com",
+      "github" : "https://github.com/toddmotto"
+    },
+    {
+      "name": "Mark Goodyear",
+      "email": "hello@markgoodyear.com",
+      "twitter" : "@markgdyr",
+      "url": "http://markgoodyear.com",
+      "github" : "https://github.com/markgoodyear"
+    }
+  ],
+  "homepage": "https://github.com/conditionizr/conditionizr/",
+  "version": "3.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0"
+  }
+}
