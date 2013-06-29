@@ -22,7 +22,7 @@ Conditionizr is also held on the CDNJS CloudFlare repository for CDN performance
 //cdnjs.cloudflare.com/ajax/libs/conditionizr.js/3.0.0/conditionizr.min.js
 ```
 
-##### CDN usage with relative fallback
+##### CDN usage with relative fallback (advised option):
 ```html
 <html>
 	<head>
