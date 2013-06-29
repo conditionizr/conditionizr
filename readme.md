@@ -27,7 +27,7 @@ Conditionizr is also held on the CDNJS CloudFlare repository for CDN performance
 <html>
 	<head>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/conditionizr.js/3.0.0/conditionizr.min.js"></script>
-		<script>window.conditionizr || document.write('<script src="dist/conditionizr.min.js"></script>');</script>
+		<script>window.conditionizr || document.write('<script src="dist/conditionizr.min.js"><\/script>');</script>
 	</head>
 	<body>
 	</body>
@@ -53,7 +53,7 @@ Setting up Conditionizr is really easy, just call the function and set up the it
 <html>
 	<head>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/conditionizr.js/3.0.0/conditionizr.min.js"></script>
-		<script>window.conditionizr || document.write('<script src="dist/conditionizr.min.js"></script>');</script>
+		<script>window.conditionizr || document.write('<script src="dist/conditionizr.min.js"><\/script>');</script>
 		<script>
 		conditionizr({
 			debug      : false,
@@ -93,7 +93,7 @@ Setting up Conditionizr is really easy, just call the function and set up the it
 ```
 
 ## Documentation
-For full Conditionizr documentation and config definitions please visit the [Docs](http://conditionizr.com/docs.html) page on the website.
+For full Conditionizr documentation and config definitions please visit the [Docs](http://conditionizr.com/docs.html) page on the website. You'll then need to set where your `scriptSrc` and `styleSrc` folders point, and add the relevant conditional files for your project.
 
 ## Scaffolding
 Project files and folder structure.
@@ -112,6 +112,15 @@ Project files and folder structure.
 ├── config.json
 └── package.json
 ```
+
+## NodeJS, Grunt and dependencies
+After installing NodeJS, you'll need to get started with Node Package Manager (npm). Visit [Grunt](http://gruntjs.com) to install Grunt. Once both are installed, using Bower or other installation methods, you can then run the following to write in the required `node_modules` files:
+
+```
+npm install
+```
+
+This will then lookup the `package.json` file and install required dependencies.
 
 ## Grunt tasks
 Conditionizr comes pre-configured with `Gruntfile.js` which contains all of Grunt's tasks. These tasks are `grunt-contrib-concat` for concatenating files, `grunt-contrib-uglify` for minifying the code.
