@@ -1,16 +1,3 @@
-/*!
- * Conditionizr v4.0.0
- * Detecting front-end environments and conditionally loading assets
- * https://github.com/conditionizr/conditionizr
- * Authors: @toddmotto and @markgdyr
- * Copyright 2013
- * MIT licensed
- */
-
-window.conditionizr = (function (window, document, undefined) {
-
-  'use strict';
-
   var conditionizr = {};
   var head = document.head || document.getElementsByTagName('head')[0];
   var assets;
@@ -117,5 +104,3 @@ window.conditionizr = (function (window, document, undefined) {
   };
 
   return conditionizr;
-
-})(window, document);

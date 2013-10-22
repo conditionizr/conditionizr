@@ -1,29 +1,37 @@
 {
-  "name": "Conditionizr",
+  "name": "conditionizr",
   "title": "Conditionizr",
-  "description": "Browser vendor, touch and retina conditional loading.",
-  "authors": [
-    {
-      "name": "Todd Motto",
-      "email": "todd@toddmotto.com",
-      "twitter" : "@toddmotto",
-      "url": "http://toddmotto.com",
-      "github" : "https://github.com/toddmotto"
-    },
-    {
-      "name": "Mark Goodyear",
-      "email": "hello@markgoodyear.com",
-      "twitter" : "@markgdyr",
-      "url": "http://markgoodyear.com",
-      "github" : "https://github.com/markgoodyear"
-    }
-  ],
-  "homepage": "https://github.com/conditionizr/conditionizr/",
-  "version": "3.0.0",
+  "description": "Detecting front-end environments and conditionally loading assets",
+  "authors": [{
+    "name": "Todd Motto",
+    "email": "todd@toddmotto.com",
+    "twitter": "@toddmotto",
+    "url": "http://toddmotto.com",
+    "github": "https://github.com/toddmotto"
+  },{
+    "name": "Mark Goodyear",
+    "email": "hello@markgoodyear.com",
+    "twitter": "@markgdyr",
+    "url": "http://markgoodyear.com",
+    "github": "https://github.com/markgoodyear"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/conditionizr/conditionizr.git"
+  },
+  "homepage": "https://github.com/conditionizr/conditionizr",
+  "version": "4.0.0",
+  "year": "2013",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-cli": "~0.1.7",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.0"
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "matchdep": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1"
   }
 }
