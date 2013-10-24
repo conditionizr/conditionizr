@@ -14,7 +14,7 @@ Options for getting started with Conditionizr:
 1. Download the latest stable release from
    [conditionizr.com](http://conditionizr.com)
 2. Clone the git repo — `git clone
-   https://github.com/toddmotto/fireshell.git` and checkout the tagged release you need
+   https://github.com/conditionizr/conditionizr.git` and checkout the tagged release you need
 3. Install with Bower `bower install https://github.com/conditionizr/conditionizr.git`
 
 ## Documentation
