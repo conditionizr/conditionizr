@@ -6,7 +6,6 @@
  * Copyright 2013
  * MIT licensed
  */
-
 window.conditionizr = (function (window, document, undefined) {
 
   'use strict';
@@ -15,23 +14,24 @@ window.conditionizr = (function (window, document, undefined) {
   var head = document.head || document.getElementsByTagName('head')[0];
   var assets;
 
-  var _loadDependencies = function (prop, type, ext) {
+  var _loadDependencies = function (prop, type, flag) {
 
-    var path = (ext ? '' : (assets || '')) + prop + (type === 'script' ? '.js' : '.css');
+    var ext = (type === 'script' ? '.js' : '.css');
+    var path = (flag ? '' : (assets || ''));
 
-    if (!ext && !conditionizr[prop]) {
+    if (!flag && !conditionizr[prop]) {
       return;
     }
 
     switch (type) {
       case 'script':
         var script = document.createElement('script');
-        script.src = path;
+        script.src = path + 'js/' + prop + ext;
         head.appendChild(script);
         break;
       case 'style':
         var style = document.createElement('link');
-        style.href = path;
+        style.href = path + 'css/' + prop + ext;
         style.rel = 'stylesheet';
         head.appendChild(style);
         break;
@@ -56,7 +56,7 @@ window.conditionizr = (function (window, document, undefined) {
 
     conditionizr[test] = callback();
 
-    if (dependencies instanceof Array) {
+    if ({}.toString.call(dependencies) === '[object Array]') {
       for (var i = 0; i < dependencies.length; i++) {
         var self = dependencies[i];
         _loadDependencies(test, self);
@@ -74,10 +74,12 @@ window.conditionizr = (function (window, document, undefined) {
     var tests = options.tests;
 
     for (var prop in tests) {
-      var values = tests[prop];
-      for (var i = 0; i < values.length; i++) {
-        var self = values[i];
-        _loadDependencies(prop, self);
+      if ({}.hasOwnProperty.call(tests, prop)) {
+        var values = tests[prop];
+        for (var i = 0; i < values.length; i++) {
+          var self = values[i];
+          _loadDependencies(prop, self);
+        }
       }
     }
 
@@ -86,7 +88,7 @@ window.conditionizr = (function (window, document, undefined) {
   conditionizr.on = function (tests, callback) {
 
     var test = tests.toLowerCase();
-    var exc = /^!/;
+    var exc = /[^!]/;
 
     if (exc.test(test)) {
       var prop = test.replace(exc, '');
@@ -106,7 +108,7 @@ window.conditionizr = (function (window, document, undefined) {
   conditionizr.load = conditionizr.polyfill = function (files, props) {
 
     var type = /\.js$/.test(files) ? 'script' : 'style';
-    var file = files.replace(/\.(js|css)$/, '');
+    var file = files.replace(/\.(?:js|css)$/, '');
 
     for (var i = 0; i < props.length; i++) {
       if (conditionizr[props[i]]) {

@@ -14,12 +14,8 @@
   "regexp": true,
   "undef": true,
   "unused": false,
-  "strict": false,
   "trailing": false,
   "globals" : {
-    "conditionizr": true,
-    "assets": true,
-    "head": true,
-    "_loadDependencies": true
+    "conditionizr": true
   }
 }

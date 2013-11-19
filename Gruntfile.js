@@ -15,15 +15,7 @@
       src: 'src',
       dist: 'dist',
       test: 'test',
-      core: [
-        '<%= conditionizr.src %>/core.js',
-        '<%= conditionizr.src %>/deps.js',
-        '<%= conditionizr.src %>/on.js',
-        '<%= conditionizr.src %>/add.js',
-        '<%= conditionizr.src %>/config.js',
-        '<%= conditionizr.src %>/polyfill-load.js',
-        '<%= conditionizr.src %>/return.js'
-      ]
+      core: ['<%= conditionizr.src %>/conditionizr.js']
     },
 
     banner: '/*!\n' +
@@ -34,9 +26,6 @@
             ' * Copyright <%= pkg.year %>\n' +
             ' * <%= pkg.license %> licensed\n' +
             ' */\n',
-
-    footer: '})(window, document);',
-
     jshint: {
       gruntfile: 'Gruntfile.js',
       files: ['<%= conditionizr.core %>'],
@@ -52,11 +41,7 @@
       },
       options: {
         stripBanners: true,
-        banner: '<%= banner %>' +
-                '\n' + 
-                'window.conditionizr = (function (window, document, undefined) {' +
-                '\n\n  \'use strict\';\n\n',
-        footer: '\n<%= footer %>'
+        banner: '<%= banner %>'
       }
     },
 
