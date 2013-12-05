@@ -1,6 +1,6 @@
 /*!
  * Conditionizr test: Firefox
  */
-conditionizr.add('firefox', [''], function () {
-    return typeof InstallTrigger !== 'undefined';
+conditionizr.add('firefox', [], function () {
+    return 'InstallTrigger' in window;
 });
