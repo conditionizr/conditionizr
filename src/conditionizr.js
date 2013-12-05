@@ -8,8 +8,7 @@ window.conditionizr = (function (window, document, undefined) {
 
   var _loadDependencies = function (prop, type, flag) {
 
-    var ext = (type === 'script' ? '.js' : '.css');
-    var path = (flag ? '' : (assets || ''));
+    var path = (flag ? '' : (assets || '')) + prop + (type === 'script' ? '.js' : '.css');
 
     if (!flag && !conditionizr[prop]) {
       return;
@@ -18,12 +17,12 @@ window.conditionizr = (function (window, document, undefined) {
     switch (type) {
       case 'script':
         var script = document.createElement('script');
-        script.src = path + 'js/' + prop + ext;
+        script.src = path;
         head.appendChild(script);
         break;
       case 'style':
         var style = document.createElement('link');
-        style.href = path + 'css/' + prop + ext;
+        style.href = path;
         style.rel = 'stylesheet';
         head.appendChild(style);
         break;
