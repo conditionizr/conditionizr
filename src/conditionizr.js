@@ -2,113 +2,97 @@ window.conditionizr = (function (window, document, undefined) {
 
   'use strict';
 
-  var conditionizr = {};
+  /**
+   * @name conditionizr
+   */
+  var conditionizr = {}, assets;
   var head = document.head || document.getElementsByTagName('head')[0];
-  var assets;
 
-  var _loadDependencies = function (prop, type, flag) {
-
-    var path = (flag ? '' : (assets || '')) + prop + (type === 'script' ? '.js' : '.css');
-
-    if (!flag && !conditionizr[prop]) {
-      return;
+  /**
+   * _loader
+   * @private
+   * @param {String} testName Name of test dependency, or file name
+   * @param {String} testDep Type of dependency
+   * @param {Boolean} ext True if external resource (load/polyfill)
+   */
+  var _loader = function (testName, testDep, load) {
+    var path = load ? testName : assets + testName + (testDep === 'style' ? '.css' : '.js');
+    switch (testDep) {
+    case 'script':
+      var script = document.createElement('script');
+      script.src = path;
+      head.appendChild(script);
+      break;
+    case 'style':
+      var style = document.createElement('link');
+      style.href = path;
+      style.rel = 'stylesheet';
+      head.appendChild(style);
+      break;
+    case 'class':
+      document.documentElement.className += ' ' + testName;
+      break;
     }
-
-    switch (type) {
-      case 'script':
-        var script = document.createElement('script');
-        script.src = path;
-        head.appendChild(script);
-        break;
-      case 'style':
-        var style = document.createElement('link');
-        style.href = path;
-        style.rel = 'stylesheet';
-        head.appendChild(style);
-        break;
-      case 'class':
-        document.documentElement.className += ' ' + prop;
-        break;
-    }
-
   };
 
-  conditionizr.add = function (tests, dependencies, callback) {
-
-    var test = tests.toLowerCase();
-
-    if (conditionizr[test] !== undefined) {
-      throw new Error('Test ' + test + ' already exists');
-    }
-
-    if (!callback) {
-      callback = dependencies;
-    }
-
-    conditionizr[test] = callback();
-
-    if ({}.toString.call(dependencies) === '[object Array]') {
-      for (var i = 0; i < dependencies.length; i++) {
-        var self = dependencies[i];
-        _loadDependencies(test, self);
-      }
-    } else {
-      throw new Error('Dependencies must be an array');
-    }
-
-  };
-
-  conditionizr.config = function (obj) {
-
-    var options = obj || {};
-    assets = options.assets || '';
+  /**
+   * conditionizr.config
+   * @param {Object} config Asset path and test configuration
+   */
+  conditionizr.config = function (config) {
+    var options = config || {};
     var tests = options.tests;
-
-    for (var prop in tests) {
-      if ({}.hasOwnProperty.call(tests, prop)) {
-        var values = tests[prop];
-        for (var i = 0; i < values.length; i++) {
-          var self = values[i];
-          _loadDependencies(prop, self);
+    assets = options.assets || '';
+    for (var testName in tests) {
+      if (conditionizr[testName]) {
+        var testDeps = tests[testName];
+        for (var i = testDeps.length; i--;) {
+          _loader(testName, testDeps[i]);
         }
       }
     }
-
   };
 
-  conditionizr.on = function (tests, callback) {
-
-    var test = tests.toLowerCase();
-    var exc = /[^!]/;
-
-    if (exc.test(test)) {
-      var prop = test.replace(exc, '');
-      if (!conditionizr[prop]) {
-        callback();
-      }
+  /**
+   * conditionizr.add
+   * @param {String} testName Added test name
+   * @param {Array} testDeps Dependencies for loading
+   * @param {Function} testFn Evaluate test to boolean
+   */
+  conditionizr.add = function (testName, testDeps, testFn) {
+    conditionizr[testName.toLowerCase()] = testFn();
+    for (var i = testDeps.length; i--;) {
+      _loader(testName, testDeps[i]);
     }
-
-    if (!conditionizr[test] || !callback) {
-      return;
-    }
-
-    callback();
-
   };
 
-  conditionizr.load = conditionizr.polyfill = function (files, props) {
+  /**
+   * conditionizr.on
+   * @param {String} testName Name of test to callback for
+   * @param {Function} testFn Callback on successful test
+   */
+  conditionizr.on = function (testName, testFn) {
+    var not = /^\!/;
+    var newTest = testName.replace(not, '');
+    if (conditionizr[testName.toLowerCase()] || (not.test(testName) && !conditionizr[newTest])) {
+      testFn();
+    }
+  };
 
-    var type = /\.js$/.test(files) ? 'script' : 'style';
-    var file = files.replace(/\.(?:js|css)$/, '');
-
-    for (var i = 0; i < props.length; i++) {
-      if (conditionizr[props[i]]) {
-        _loadDependencies(file, type, true);
+  /**
+   * conditionizr.load && conditionizr.polyfill
+   * @param {String} resource Name of resource to load
+   * @param {Array} testNames Tests to load resource for
+   */
+  conditionizr.load = conditionizr.polyfill = function (resource, testNames) {
+    var testDep = /\.js$/.test(resource) ? 'script' : 'style';
+    for (var i = testNames.length; i--;) {
+      if (conditionizr[testNames[i].toLowerCase()]) {
+        _loader(resource, testDep, true);
       }
     }
-
   };
 
   return conditionizr;
 
-})(window, document);
+})(this, document);
