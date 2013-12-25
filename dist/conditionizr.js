@@ -1,5 +1,5 @@
 /*!
- * Conditionizr v4.0.0
+ * Conditionizr v4.1.0
  * Detecting front-end environments and conditionally loading assets
  * https://github.com/conditionizr/conditionizr
  * Authors: @toddmotto and @markgdyr
@@ -21,7 +21,7 @@ window.conditionizr = (function (window, document, undefined) {
    * @private
    * @param {String} testName Name of test dependency, or file name
    * @param {String} testDep Type of dependency
-   * @param {Boolean} ext True if external resource (load/polyfill)
+   * @param {Boolean} load True if external resource (load/polyfill)
    */
   var _loader = function (testName, testDep, load) {
     var path = load ? testName : assets + testName + (testDep === 'style' ? '.css' : '.js');
@@ -52,10 +52,11 @@ window.conditionizr = (function (window, document, undefined) {
     var tests = options.tests;
     assets = options.assets || '';
     for (var testName in tests) {
-      if (conditionizr[testName]) {
+      var newTest = testName.toLowerCase();
+      if (conditionizr[newTest]) {
         var testDeps = tests[testName];
         for (var i = testDeps.length; i--;) {
-          _loader(testName, testDeps[i]);
+          _loader(newTest, testDeps[i]);
         }
       }
     }
@@ -81,8 +82,7 @@ window.conditionizr = (function (window, document, undefined) {
    */
   conditionizr.on = function (testName, testFn) {
     var not = /^\!/;
-    var newTest = testName.replace(not, '');
-    if (conditionizr[testName.toLowerCase()] || (not.test(testName) && !conditionizr[newTest])) {
+    if (conditionizr[testName.toLowerCase()] || (not.test(testName) && !conditionizr[testName.replace(not, '')])) {
       testFn();
     }
   };

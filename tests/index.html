@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Conditionizr Tests</title>
+
+    <!-- conditionizr core -->
+    <script src="../dist/conditionizr.js"></script>
+
+    <!-- conditionizr detects -->
+    <script src="../detects/chrome.js"></script>
+    <script src="../detects/chromium.js"></script>
+    <script src="../detects/firefox.js"></script>
+    <script src="../detects/ie6.js"></script>
+    <script src="../detects/ie7.js"></script>
+    <script src="../detects/ie8.js"></script>
+    <script src="../detects/ie9.js"></script>
+    <script src="../detects/ie10.js"></script>
+    <script src="../detects/ie10touch.js"></script>
+    <script src="../detects/ie11.js"></script>
+    <script src="../detects/ios.js"></script>
+    <script src="../detects/linux.js"></script>
+    <script src="../detects/mac.js"></script>
+    <script src="../detects/opera.js"></script>
+    <script src="../detects/retina.js"></script>
+    <script src="../detects/safari.js"></script>
+    <script src="../detects/touch.js"></script>
+    <script src="../detects/windows.js"></script>
+    <script src="../detects/winPhone7.js"></script>
+    <script src="../detects/winPhone75.js"></script>
+    <script src="../detects/winPhone8.js"></script>
+  </head>
+  <body>
+    <script>
+    conditionizr.config({
+      assets: '/assets/conditionizr/',
+      tests: {
+        'chrome': ['style', 'script', 'class'],
+        'chromium': ['style', 'script', 'class'],
+        'firefox': ['style', 'script', 'class'],
+        'ie6': ['style', 'script', 'class'],
+        'ie7': ['style', 'script', 'class'],
+        'ie8': ['style', 'script', 'class'],
+        'ie9': ['style', 'script', 'class'],
+        'ie10': ['style', 'script', 'class'],
+        'ie10touch': ['style', 'script', 'class'],
+        'ie11': ['style', 'script', 'class'],
+        'ios': ['style', 'script', 'class'],
+        'linux': ['style', 'script', 'class'],
+        'mac': ['style', 'script', 'class'],
+        'opera': ['style', 'script', 'class'],
+        'retina': ['style', 'script', 'class'],
+        'safari': ['style', 'script', 'class'],
+        'touch': ['style', 'script', 'class'],
+        'windows': ['style', 'script', 'class'],
+        'winPhone7': ['style', 'script', 'class'],
+        'winPhone75': ['style', 'script', 'class'],
+        'winPhone8': ['style', 'script', 'class']
+      }
+    });
+
+    conditionizr.on('chrome', function () {
+      document.body.innerHTML += '<div>Chrome!</div>';
+    });
+    conditionizr.on('chromium', function () {
+      document.body.innerHTML += '<div>Chromium!</div>';
+    });
+    conditionizr.on('firefox', function () {
+      document.body.innerHTML += '<div>FireFox!</div>';
+    });
+    conditionizr.on('ie6', function () {
+      document.body.innerHTML += '<div>IE6!</div>';
+    });
+    conditionizr.on('ie7', function () {
+      document.body.innerHTML += '<div>IE7!</div>';
+    });
+    conditionizr.on('ie8', function () {
+      document.body.innerHTML += '<div>IE8!</div>';
+    });
+    conditionizr.on('ie9', function () {
+      document.body.innerHTML += '<div>IE9!</div>';
+    });
+    conditionizr.on('ie10', function () {
+      document.body.innerHTML += '<div>IE10!</div>';
+    });
+    conditionizr.on('ie10touch', function () {
+      document.body.innerHTML += '<div>IE10 Touch!</div>';
+    });
+    conditionizr.on('ie11', function () {
+      document.body.innerHTML += '<div>IE11!</div>';
+    });
+    conditionizr.on('ios', function () {
+      document.body.innerHTML += '<div>iOS!</div>';
+    });
+    conditionizr.on('linux', function () {
+      document.body.innerHTML += '<div>Linux!</div>';
+    });
+    conditionizr.on('mac', function () {
+      document.body.innerHTML += '<div>Mac!</div>';
+    });
+    conditionizr.on('opera', function () {
+      document.body.innerHTML += '<div>Opera!</div>';
+    });
+    conditionizr.on('retina', function () {
+      document.body.innerHTML += '<div>Retina!</div>';
+    });
+    conditionizr.on('safari', function () {
+      document.body.innerHTML += '<div>Safari!</div>';
+    });
+    conditionizr.on('touch', function () {
+      document.body.innerHTML += '<div>Touch!</div>';
+    });
+    conditionizr.on('windows', function () {
+      document.body.innerHTML += '<div>Windows!</div>';
+    });
+    conditionizr.on('winPhone7', function () {
+      document.body.innerHTML += '<div>winPhone7!</div>';
+    });
+    conditionizr.on('winPhone75', function () {
+      document.body.innerHTML += '<div>winPhone75!</div>';
+    });
+    conditionizr.on('winPhone8', function () {
+      document.body.innerHTML += '<div>winPhone8!</div>';
+    });
+    </script>
+  </body>
+</html>

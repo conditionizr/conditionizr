@@ -19,7 +19,7 @@ Options for getting started with Conditionizr:
 
 ## Documentation
 
-Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md) on Conditionizr version 4 APIs. All APIs in version 4 are breaking changes from version 3 and below.
+Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md) on Conditionizr version 4.x APIs.
 
 ## Core and APIs
 
@@ -42,8 +42,8 @@ This would then load browser specific tweaks, or you could use the global class 
 ````html
 <html class="safari">
   <head>
-    <script src="path/to/my/assets/js/safari.js"></script>
-    <link href="path/to/my/assets/css/safari.css" rel="stylesheet">
+    <script src="assets/conditionizr/safari.js"></script>
+    <link href="assets/conditionizr/safari.css" rel="stylesheet">
   </head>
 </html>
 ````
@@ -63,6 +63,14 @@ Using .on() you can create custom callbacks for when conditional tests return tr
 ````js
 conditionizr.on('safari', function () {
   // safari
+});
+````
+
+You can also ignore environment tests using `!`:
+
+````js
+conditionizr.on('!safari', function () {
+  // anything but safari
 });
 ````
 
