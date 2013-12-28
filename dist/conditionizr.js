@@ -1,4 +1,4 @@
-/*! Conditionizr v4.1.0 | (c) 2013 @toddmotto, @markgdyr | conditionizr.com */
+/*! Conditionizr v4.1.0 | (c) 2013 @toddmotto, @markgdyr | MIT license | conditionizr.com */
 window.conditionizr = (function (window, document, undefined) {
 
   'use strict';
