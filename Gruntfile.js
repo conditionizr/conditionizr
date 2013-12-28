@@ -18,14 +18,7 @@
       core: ['<%= conditionizr.src %>/conditionizr.js']
     },
 
-    banner: '/*!\n' +
-            ' * <%= pkg.title %> v<%= pkg.version %>\n' +
-            ' * <%= pkg.description %>\n' +
-            ' * <%= pkg.homepage %>\n' +
-            ' * Authors: <%= pkg.authors[0].twitter %> and <%= pkg.authors[1].twitter %>\n' +
-            ' * Copyright <%= pkg.year %>\n' +
-            ' * <%= pkg.license %> licensed\n' +
-            ' */\n',
+    banner: '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= pkg.year %> @toddmotto, @markgdyr | conditionizr.com */\n',
     jshint: {
       gruntfile: 'Gruntfile.js',
       files: ['<%= conditionizr.core %>'],
