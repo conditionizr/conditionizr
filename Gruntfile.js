@@ -18,7 +18,7 @@
       core: ['<%= conditionizr.src %>/conditionizr.js']
     },
 
-    banner: '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= pkg.year %> @toddmotto, @markgdyr | MIT license | conditionizr.com */\n',
+    banner: '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= grunt.template.today(\'yyyy\') %> @toddmotto, @markgdyr | MIT license | conditionizr.com */\n',
     jshint: {
       gruntfile: 'Gruntfile.js',
       files: ['<%= conditionizr.core %>'],
