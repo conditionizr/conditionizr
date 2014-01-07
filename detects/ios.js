@@ -2,5 +2,5 @@
  * Conditionizr test: iOS
  */
 conditionizr.add('ios', [], function () {
-    return /(iPad|iPhone|iPod)/i.test(navigator.userAgent);
+    return /iP(ad|hone|od)/i.test(navigator.userAgent);
 });
