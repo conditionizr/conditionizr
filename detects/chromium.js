@@ -1,6 +1,6 @@
 /*!
- * Conditionizr test: Chromium
+ * Chromium
  */
 conditionizr.add('chromium', [], function () {
-    return /cros i686/i.test(navigator.platform);
+  return /cros i686/i.test(navigator.platform);
 });

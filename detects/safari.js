@@ -1,6 +1,8 @@
 /*!
- * Conditionizr test: Safari
+ * Safari
+ * The only browser where the HTMLElement
+ * contains `Constructor`
  */
 conditionizr.add('safari', [], function () {
-    return /constructor/i.test(window.HTMLElement);
+  return /Constructor/.test(window.HTMLElement);
 });
