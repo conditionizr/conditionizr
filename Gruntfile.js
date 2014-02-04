@@ -19,11 +19,19 @@
     },
 
     banner: '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= grunt.template.today(\'yyyy\') %> @toddmotto, @markgdyr | MIT license | conditionizr.com */\n',
+
     jshint: {
       gruntfile: 'Gruntfile.js',
       files: ['<%= conditionizr.core %>'],
       options: {
         jshintrc: '.jshintrc'
+      }
+    },
+
+    jasmine : {
+      src : 'dist/**/*.js',
+      options : {
+        specs : 'test/**/*.js'
       }
     },
 
@@ -49,8 +57,8 @@
     },
 
     clean: {
-      dist: [ 'dist' ],
-      test: [ '<%= conditionizr.test %>/conditionizr.js' ]
+      dist: [ 'dist' ]
+      // test: [ '<%= conditionizr.test %>/conditionizr.js' ]
     },
 
     copy: {
@@ -93,7 +101,8 @@
       'clean',
       'jshint',
       'concat',
-      'uglify'
+      'uglify',
+      'jasmine'
     ]);
 
 
