@@ -10,10 +10,17 @@ describe('Conditionizr', function () {
     expect(typeof conditionizr).toBe('object');
   });
 
+  it('should have all methods', function() {
+    var methods = 'config on add polyfill load'.split();
+    for (var i = methods.length; i--;) {
+      expect(methods[i]).toBeDefined();
+    }
+  });
+
   /**
-   * .add() API
+   * .add()
    */
-  describe('add API', function () {
+  describe('add()', function () {
 
     beforeEach(function () {
       conditionizr.add('safari', [], function () {
@@ -23,6 +30,32 @@ describe('Conditionizr', function () {
 
     it('should add an object property', function () {
       expect(typeof conditionizr.safari).toBeTruthy();
+    });
+
+  });
+
+  /**
+   * .on()
+   */
+  describe('on()', function () {
+
+    beforeEach(function() {
+      conditionizr.add('fakeTestTrue', [], function () {
+        return true;
+      });
+      conditionizr.add('fakeTestFalse', [], function () {
+        return false;
+      });
+      spyOn(conditionizr, 'on');
+      conditionizr.on('fakeTest', function () {});
+    });
+
+    it('should call the .on() method', function() {
+      expect(conditionizr.on).toHaveBeenCalled();
+    });
+
+    it('should just call twice', function() {
+      expect(conditionizr.on).toHaveBeenCalledWith('fakeTest', jasmine.any(Function));
     });
 
   });
