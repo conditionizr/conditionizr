@@ -29,7 +29,7 @@ describe('Conditionizr', function () {
     });
 
     it('should add an object property', function () {
-      expect(typeof conditionizr.safari).toBeDefined();
+      expect(conditionizr.safari).toBeDefined();
     });
 
   });
