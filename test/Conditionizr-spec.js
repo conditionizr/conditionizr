@@ -14,10 +14,12 @@ describe('Conditionizr', function () {
    * Loop through the expected public methods to
    * ensure they're all defined
    */
-  it('should have all public methods', function() {
+  it('should have all public methods with functions', function() {
     var methods = 'config on add polyfill load'.split(/\s/);
     for (var i = methods.length; i--;) {
-      expect(conditionizr[methods[i]]).toBeDefined();
+      var method = conditionizr[methods[i]];
+      expect(method).toBeDefined();
+      expect(typeof method).toBe('function');
     }
   });
 
