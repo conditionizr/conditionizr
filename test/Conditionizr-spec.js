@@ -52,10 +52,10 @@ describe('Conditionizr', function () {
   describe('object booleans', function () {
 
     beforeEach(function () {
-      conditionizr.add('faketrue', [], function () {
+      conditionizr.add('faketrue', ['class'], function () {
         return true;
       });
-      conditionizr.add('fakefalse', [], function () {
+      conditionizr.add('fakefalse', ['class'], function () {
         return false;
       });
     });
@@ -65,13 +65,36 @@ describe('Conditionizr', function () {
       expect(conditionizr.fakefalse).toBe(false);
     });
 
+    it('should add the true className', function () {
+      expect(document.documentElement.className).toContain('faketrue');
+      expect(document.documentElement.className).not.toContain('fakefalse');
+    });
+
+  });
+
+  /**
+   * Will fire when a property is true
+   */
+  describe('on()', function () {
+
+    beforeEach(function () {
+      conditionizr.add('faketrue', [], function () {
+        return true;
+      });
+    });
+
+    it('should run a callback when the value is true', function () {
+      spyOn(conditionizr, 'on');
+      conditionizr.on('fake', function () {});
+      expect(conditionizr.on).toHaveBeenCalledWith('fake', jasmine.any(Function));
+    });
+
   });
 
   /**
    * TODO:
    * .polyfill()
    * .load()
-   * .on()
    * .config()
    */
 
