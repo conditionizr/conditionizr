@@ -61,12 +61,9 @@ window.conditionizr = (function (window, document, undefined) {
    * @param {Function} testFn Evaluate test to boolean
    */
   conditionizr.add = function (testName, testDeps, testFn) {
-    var newTest = testName.toLowerCase();
-    conditionizr[newTest] = testFn();
-    if (conditionizr[newTest]) {
-      for (var i = testDeps.length; i--;) {
-        _loader(testName, testDeps[i]);
-      }
+    conditionizr[testName.toLowerCase()] = testFn();
+    for (var i = testDeps.length; i--;) {
+      _loader(testName, testDeps[i]);
     }
   };
 
