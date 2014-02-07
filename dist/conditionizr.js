@@ -66,7 +66,7 @@ window.conditionizr = (function (window, document, undefined) {
     conditionizr[newTest] = testFn();
     if (conditionizr[newTest]) {
       for (var i = testDeps.length; i--;) {
-        _loader(testName, testDeps[i]);
+        _loader(newTest, testDeps[i]);
       }
     }
   };

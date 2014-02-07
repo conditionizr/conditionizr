@@ -65,9 +65,36 @@ describe('Conditionizr', function () {
       expect(conditionizr.fakefalse).toBe(false);
     });
 
+  });
+
+  describe('class names on <html>', function () {
+
+    beforeEach(function () {
+      conditionizr.add('fakeTrueUsingAdd', ['class'], function () {
+        return true;
+      });
+      conditionizr.add('fakeFalseUsingAdd', ['class'], function () {
+        return false;
+      });
+      conditionizr.add('fakeTrueUsingConfig', [], function () {
+        return true;
+      });
+      conditionizr.add('fakeFalseUsingConfig', [], function () {
+        return false;
+      });
+      conditionizr.config({
+          tests:{
+              'fakeTrueUsingConfig': ['class'],
+              'fakeFalseUsingConfig': ['class']
+          }
+      });
+    });
+
     it('should add the true className', function () {
-      expect(document.documentElement.className).toContain('faketrue');
-      expect(document.documentElement.className).not.toContain('fakefalse');
+      expect(document.documentElement.className).toContain('faketrueusingadd');
+      expect(document.documentElement.className).toContain('faketrueusingconfig');
+      expect(document.documentElement.className).not.toContain('fakefalseusingadd');
+      expect(document.documentElement.className).not.toContain('fakefalseusingconfig');
     });
 
   });
