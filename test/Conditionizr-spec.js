@@ -11,7 +11,7 @@ describe('Conditionizr', function () {
   });
 
   it('should have all methods', function() {
-    var methods = 'config on add polyfill load'.split();
+    var methods = 'config on add polyfill load'.split(/\s/);
     for (var i = methods.length; i--;) {
       expect(conditionizr.methods[i]).toBeDefined();
     }
