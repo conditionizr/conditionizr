@@ -67,21 +67,21 @@ describe('Conditionizr', function () {
 
   });
 
+  /**
+   * Class names are added the the <html> tag
+   * when the object property value is true.
+   * There are also two ways to declare classes to add,
+   * using .add() inline ['class'] array, or using .config()
+   */
   describe('class names on <html>', function () {
 
     beforeEach(function () {
-      conditionizr.add('fakeTrueUsingAdd', ['class'], function () {
-        return true;
-      });
-      conditionizr.add('fakeFalseUsingAdd', ['class'], function () {
-        return false;
-      });
-      conditionizr.add('fakeTrueUsingConfig', [], function () {
-        return true;
-      });
-      conditionizr.add('fakeFalseUsingConfig', [], function () {
-        return false;
-      });
+      var returnTrue = function () { return true; };
+      var returnFalse = function () { return false; };
+      conditionizr.add('fakeTrueUsingAdd', ['class'], returnTrue);
+      conditionizr.add('fakeFalseUsingAdd', ['class'], returnFalse);
+      conditionizr.add('fakeTrueUsingConfig', [], returnTrue);
+      conditionizr.add('fakeFalseUsingConfig', [], returnFalse);
       conditionizr.config({
           tests:{
               'fakeTrueUsingConfig': ['class'],
@@ -90,7 +90,7 @@ describe('Conditionizr', function () {
       });
     });
 
-    it('should add the true className', function () {
+    it('should add the faketrue classNames from add() and config()', function () {
       expect(document.documentElement.className).toContain('faketrueusingadd');
       expect(document.documentElement.className).toContain('faketrueusingconfig');
       expect(document.documentElement.className).not.toContain('fakefalseusingadd');
