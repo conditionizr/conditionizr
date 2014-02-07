@@ -24,26 +24,6 @@ describe('Conditionizr', function () {
   });
 
   /**
-   * .add()
-   * Add a detect using the .add() method
-   * and expect the property to be added
-   */
-  describe('add()', function () {
-
-    beforeEach(function () {
-      // add a real test to ensure it's defined
-      conditionizr.add('safari', [], function () {
-        return /constructor/i.test(window.HTMLElement);
-      });
-    });
-
-    it('should add an object property', function () {
-      expect(conditionizr.safari).toBeDefined();
-    });
-
-  });
-
-  /**
    * Object properties should hold a Boolean value
    * so let's emulate detects which fake true or false
    * to ensure our callback result gets added as the
@@ -89,15 +69,37 @@ describe('Conditionizr', function () {
     });
 
     it('should add the faketrue classNames from add() and config()', function () {
-      expect(document.documentElement.className).toContain('faketrueusingadd');
-      expect(document.documentElement.className).toContain('faketrueusingconfig');
-      expect(document.documentElement.className).not.toContain('fakefalseusingadd');
-      expect(document.documentElement.className).not.toContain('fakefalseusingconfig');
+      var htmlElement = document.documentElement.className;
+      expect(htmlElement).toContain('faketrueusingadd');
+      expect(htmlElement).toContain('faketrueusingconfig');
+      expect(htmlElement).not.toContain('fakefalseusingadd');
+      expect(htmlElement).not.toContain('fakefalseusingconfig');
     });
 
   });
 
   /**
+   * Method: .add()
+   * Add a detect using the .add() method
+   * and expect the property to be added
+   */
+  describe('add()', function () {
+
+    beforeEach(function () {
+      // add a real test to ensure it's defined
+      conditionizr.add('safari', [], function () {
+        return /constructor/i.test(window.HTMLElement);
+      });
+    });
+
+    it('should add an object property', function () {
+      expect(conditionizr.safari).toBeDefined();
+    });
+
+  });
+
+  /**
+   * Method: on()
    * Will fire when a property is true
    */
   describe('on()', function () {
@@ -110,7 +112,7 @@ describe('Conditionizr', function () {
 
     it('should run a callback when the value is true', function () {
       spyOn(conditionizr, 'on');
-      conditionizr.on('fake', function () {});
+      conditionizr.on('fake', function () { return 11; });
       expect(conditionizr.on).toHaveBeenCalledWith('fake', jasmine.any(Function));
     });
 
@@ -118,9 +120,11 @@ describe('Conditionizr', function () {
 
   /**
    * TODO:
-   * .polyfill()
-   * .load()
-   * .config()
+   * - scripts and styles loading
+   * - polyfill()
+   * - on()
+   * - load()
+   * - config()
    */
 
 });
