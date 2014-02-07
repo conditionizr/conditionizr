@@ -52,12 +52,10 @@ describe('Conditionizr', function () {
   describe('object booleans', function () {
 
     beforeEach(function () {
-      conditionizr.add('faketrue', ['class'], function () {
-        return true;
-      });
-      conditionizr.add('fakefalse', ['class'], function () {
-        return false;
-      });
+      var returnTrue = function () { return true; };
+      var returnFalse = function () { return false; };
+      conditionizr.add('faketrue', ['class'], returnTrue);
+      conditionizr.add('fakefalse', ['class'], returnFalse);
     });
 
     it('should result in a boolean value', function () {
