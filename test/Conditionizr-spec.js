@@ -10,19 +10,26 @@ describe('Conditionizr', function () {
     expect(typeof conditionizr).toBe('object');
   });
 
-  it('should have all methods', function() {
+  /**
+   * Loop through the expected public methods to
+   * ensure they're all defined
+   */
+  it('should have all public methods', function() {
     var methods = 'config on add polyfill load'.split(/\s/);
     for (var i = methods.length; i--;) {
-      expect(conditionizr.methods[i]).toBeDefined();
+      expect(conditionizr[methods[i]]).toBeDefined();
     }
   });
 
   /**
    * .add()
+   * Add a detect using the .add() method
+   * and expect the property to be added
    */
   describe('add()', function () {
 
     beforeEach(function () {
+      // add a real test to ensure it's defined
       conditionizr.add('safari', [], function () {
         return /constructor/i.test(window.HTMLElement);
       });
@@ -35,29 +42,35 @@ describe('Conditionizr', function () {
   });
 
   /**
-   * .on()
+   * Object properties should hold a Boolean value
+   * so let's emulate detects which fake true or false
+   * to ensure our callback result gets added as the
+   * property value
    */
-  describe('on()', function () {
+  describe('object booleans', function () {
 
-    beforeEach(function() {
-      conditionizr.add('fakeTestTrue', [], function () {
+    beforeEach(function () {
+      conditionizr.add('faketrue', [], function () {
         return true;
       });
-      conditionizr.add('fakeTestFalse', [], function () {
+      conditionizr.add('fakefalse', [], function () {
         return false;
       });
-      spyOn(conditionizr, 'on');
-      conditionizr.on('fakeTest', function () {});
     });
 
-    it('should call the .on() method', function() {
-      expect(conditionizr.on).toHaveBeenCalled();
-    });
-
-    it('should just call twice', function() {
-      expect(conditionizr.on).toHaveBeenCalledWith('fakeTest', jasmine.any(Function));
+    it('should result in a boolean value', function () {
+      expect(conditionizr.faketrue).toBe(true);
+      expect(conditionizr.fakefalse).toBe(false);
     });
 
   });
+
+  /**
+   * TODO:
+   * .polyfill()
+   * .load()
+   * .on()
+   * .config()
+   */
 
 });
