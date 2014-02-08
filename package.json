@@ -37,6 +37,9 @@
     "gulp-rename": "~1.0.0",
     "gulp-header": "~1.0.2",
     "gulp-util": "~2.2.14",
-    "gulp-load-plugins": "~0.3.0"
+    "gulp-load-plugins": "~0.3.0",
+    "gulp-grunt": "~0.4.1",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jasmine": "~0.6.1"
   }
 }

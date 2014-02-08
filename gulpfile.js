@@ -6,7 +6,10 @@ var gulp   = require('gulp')
     $      = require('gulp-load-plugins')({ camelize: true }),
     pkg    = require('./package.json'),
     year   = $.util.date('yyyy'),
-    banner = '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= year %> @toddmotto, @markgdyr | MIT license | conditionizr.com i*/\n',
+    banner = '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= year %> @toddmotto, @markgdyr | MIT license | conditionizr.com i*/\n';
+
+// Run grunt tasks from gulp
+require('gulp-grunt')(gulp);
 
 
 /**
@@ -34,8 +37,12 @@ gulp.task('clean', function() {
 
 // Default
 gulp.task('default', ['build'], function () {
-  return gulp.src('./test/Conditionizr-spec.js')
-    .pipe($.jasmine())
+
+  /*
+   * Use the Grunt Jasmine task to run tests as
+   * `gulp-jasmine` doesn't currently support PhantomJS
+   */
+  gulp.start('grunt-jasmine');
 });
 
 // Watch
