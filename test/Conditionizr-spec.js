@@ -1,6 +1,9 @@
 /**
  * Conditionizr
  */
+
+require('../src/conditionizr.js');
+
 describe('Conditionizr', function () {
 
   /**
