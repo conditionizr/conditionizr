@@ -4,26 +4,6 @@
 describe('Conditionizr', function () {
 
   /**
-   * We should get an Object returned
-   */
-  it('should return an Object', function () {
-    expect(typeof conditionizr).toBe('object');
-  });
-
-  /**
-   * Loop through the expected public methods to
-   * ensure they're all defined
-   */
-  it('should have all public methods with functions', function() {
-    var methods = 'config on add polyfill load'.split(/\s/);
-    for (var i = methods.length; i--;) {
-      var method = conditionizr[methods[i]];
-      expect(method).toBeDefined();
-      expect(typeof method).toBe('function');
-    }
-  });
-
-  /**
    * Object properties should hold a Boolean value
    * so let's emulate detects which fake true or false
    * to ensure our callback result gets added as the
