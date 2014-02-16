@@ -1,4 +1,4 @@
-/*! Conditionizr v4.1.0 | (c) 2014 @toddmotto, @markgdyr | MIT license | conditionizr.com */
+/*! Conditionizr v4.2.0 | (c) 2014 @toddmotto, @markgdyr | MIT license | conditionizr.com */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['conditionizr'], factory);
