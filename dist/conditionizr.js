@@ -1,12 +1,15 @@
 /*! Conditionizr v4.1.0 | (c) 2014 @toddmotto, @markgdyr | MIT license | conditionizr.com */
-window.conditionizr = (function (window, document, undefined) {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['conditionizr'], factory);
+  } else {
+    root.conditionizr = factory();
+  }
+})(this, function () {
 
   'use strict';
 
-  /**
-   * @name conditionizr
-   */
-  var conditionizr = {}, assets;
+  var exports = {}, assets;
   var head = document.head || document.getElementsByTagName('head')[0];
 
   /**
@@ -37,16 +40,16 @@ window.conditionizr = (function (window, document, undefined) {
   };
 
   /**
-   * conditionizr.config
+   * exports.config
    * @param {Object} config Asset path and test configuration
    */
-  conditionizr.config = function (config) {
+  exports.config = function (config) {
     var options = config || {};
     var tests = options.tests;
     assets = options.assets || '';
     for (var testName in tests) {
       var newTest = testName.toLowerCase();
-      if (conditionizr[newTest]) {
+      if (exports[newTest]) {
         var testDeps = tests[testName];
         for (var i = testDeps.length; i--;) {
           _loader(newTest, testDeps[i]);
@@ -56,15 +59,15 @@ window.conditionizr = (function (window, document, undefined) {
   };
 
   /**
-   * conditionizr.add
+   * exports.add
    * @param {String} testName Added test name
    * @param {Array} testDeps Dependencies for loading
    * @param {Function} testFn Evaluate test to boolean
    */
-  conditionizr.add = function (testName, testDeps, testFn) {
+  exports.add = function (testName, testDeps, testFn) {
     var newTest = testName.toLowerCase();
-    conditionizr[newTest] = testFn();
-    if (conditionizr[newTest]) {
+    exports[newTest] = testFn();
+    if (exports[newTest]) {
       for (var i = testDeps.length; i--;) {
         _loader(newTest, testDeps[i]);
       }
@@ -72,31 +75,31 @@ window.conditionizr = (function (window, document, undefined) {
   };
 
   /**
-   * conditionizr.on
+   * exports.on
    * @param {String} testName Name of test to callback for
    * @param {Function} testFn Callback on successful test
    */
-  conditionizr.on = function (testName, testFn) {
+  exports.on = function (testName, testFn) {
     var not = /^\!/;
-    if (conditionizr[testName.toLowerCase()] || (not.test(testName) && !conditionizr[testName.replace(not, '')])) {
+    if (exports[testName.toLowerCase()] || (not.test(testName) && !exports[testName.replace(not, '')])) {
       testFn();
     }
   };
 
   /**
-   * conditionizr.load && conditionizr.polyfill
+   * exports.load / exports.polyfill
    * @param {String} resource Name of resource to load
    * @param {Array} testNames Tests to load resource for
    */
-  conditionizr.load = conditionizr.polyfill = function (resource, testNames) {
+  exports.load = exports.polyfill = function (resource, testNames) {
     var testDep = /\.js$/.test(resource) ? 'script' : 'style';
     for (var i = testNames.length; i--;) {
-      if (conditionizr[testNames[i].toLowerCase()]) {
+      if (exports[testNames[i].toLowerCase()]) {
         _loader(resource, testDep, true);
       }
     }
   };
 
-  return conditionizr;
+  return exports;
 
-})(this, document);
+});

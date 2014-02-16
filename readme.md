@@ -1,29 +1,21 @@
 # Conditionizr [![Build Status](https://travis-ci.org/conditionizr/conditionizr.png)](https://travis-ci.org/conditionizr/conditionizr)
 
-Detecting front-end environments and conditionally loading assets. Retina, touch, legacy IE, modern browsers, custom tests and more, wrapped inside a 1KB API.
+Detects front-end environments and binds the results to the [conditionizr](http://conditionizr.com) Object. 1KB module for async callbacks, conditional script/style loading, automated polyfilling, inline boolean evaluations, classNames for styling overrides, custom tests and more.
 
-* Source: [github.com/conditionizr/conditionizr](http://github.com/conditionizr/conditionizr)
-* Homepage: [conditionizr.com](http://conditionizr.com)
-* Twitter: [@conditionizr](http://twitter.com/conditionizr)
-* Authors: [@toddmotto](//twitter.com/toddmotto), [@markgdyr](//twitter.com/markgdyr)
+Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md) on Conditionizr version 4.x methods.
 
-## Jump start
+By [@toddmotto](//twitter.com/toddmotto) and [@markgdyr](//twitter.com/markgdyr).
 
-Options for getting started with Conditionizr:
+## Installing with Bower
+Use the repository hook:
 
-1. Download the latest stable release from
-   [conditionizr.com](http://conditionizr.com)
-2. Clone the git repo — `git clone
-   https://github.com/conditionizr/conditionizr.git` and checkout the tagged release you need
-3. Install with Bower `bower install https://github.com/conditionizr/conditionizr.git`
+```
+bower install https://github.com/conditionizr/conditionizr.git
+```
 
-## Documentation
+## Core and methods
 
-Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md) on Conditionizr version 4.x APIs.
-
-## Core and APIs
-
-The Conditionizr core is made up of several public APIs.
+The Conditionizr core is made up of several public methods.
 
 #### .config()
 The config API allows you to easily configure your conditional environments, once tests are added. You have a choice of loading conditional scripts, styles and class names per config test, as well as specifying an asset path to where your files are.
@@ -89,32 +81,32 @@ Polyfill and load each allow you to inject custom assets based on a conditional 
 conditionizr.polyfill('//html5shiv.googlecode.com/svn/trunk/html5.js', ['ie6', 'ie7', 'ie8']);
 ````
 
-Using the .load() API instead of .polyfill() is purely for naming conventions to differentiate between polyfills and generic assets.
+Using the .load() method instead of .polyfill() is purely for naming conventions to differentiate between polyfills and generic assets.
 
 ````js
 conditionizr.load('//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min.js', ['ios']);
 ````
 
-## License
+## Contributing
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Grunt.
 
-#### The MIT License (MIT)
+## Release history
 
-Copyright (c) Conditionizr
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- 4.2.0
+  - Add AMD support
+- 4.1.0
+  - Performance enhancements for `.on()` and `.add()`
+  - Bugfix for `.on(!)` callbacks
+  - Improve `_loader()` performance
+- 4.0.0
+  - Separate tests/detects from core
+  - Performance rewrites
+  - Add `.on()`, `.add()`, `.config()`, `.load()`, `.polyfill()` methods
+  - Ship a public Object for boolean tests
+  - Add `/detects` directory which hosts all detects
+- 3.0.0
+  - Rewrite Conditionizr with improved IE detects
+- 2.0.0
+  - Remove jQuery dependency
+- 1.0.0
+  - Initial release

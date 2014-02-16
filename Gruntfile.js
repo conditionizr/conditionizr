@@ -3,7 +3,7 @@
 /**
  * Grunt setup
  */
- module.exports = function(grunt) {
+module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -93,27 +93,27 @@
   });
 
 
-    /**
-     * Default Task
-     * run `grunt`
-     */
-     grunt.registerTask('default', [
-      'clean',
-      'jshint',
-      'concat',
-      'uglify',
-      'jasmine'
-    ]);
+  /**
+   * Default Task
+   * run `grunt`
+   */
+  grunt.registerTask('default', [
+    'clean',
+    'jshint',
+    'concat',
+    'uglify',
+    'jasmine'
+  ]);
 
 
-    /**
-     * Create test server
-     * run `grunt test`
-     */
-     grunt.registerTask('test', [
-      'clean:test',
-      'copy:test',
-      'connect:test'
-    ]);
+  /**
+   * Create test server
+   * run `grunt test`
+   */
+  grunt.registerTask('test', [
+    'clean:test',
+    'copy:test',
+    'connect:test'
+  ]);
 
-   };
+};
