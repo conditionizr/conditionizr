@@ -1,6 +1,6 @@
 /*!
  * PhantomJS
  */
-conditionizr.add('phantomjs', ['class'], function () {
+conditionizr.add('phantomjs', [], function () {
   return /\sPhantomJS\/[[0-9]+\]/.test(navigator.userAgent);
 });
