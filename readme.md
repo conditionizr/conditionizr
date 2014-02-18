@@ -50,7 +50,7 @@ conditionizr.add('safari', [], function () {
 ````
 
 #### .on()
-Using .on() you can create custom callbacks for when conditional tests return true which are your best bet if you can avoid loading an external script and style, for instance if I’ve added a test for Safari, when a user is running Safari, your callback will run. This is preferred as it saves an HTTP request and improves performance. 
+Using .on() you can create custom callbacks for when conditional tests return true which are your best bet if you can avoid loading an external script and style, for instance if I’ve added a test for Safari, when a user is running Safari, your callback will run. This is preferred as it saves an HTTP request and improves performance.
 
 ````js
 conditionizr.on('safari', function () {
@@ -92,6 +92,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 4.3.0
+  - Add CommonJS/Browserify
+  - AMD bugfix
 - 4.2.0
   - Add AMD support
 - 4.1.0

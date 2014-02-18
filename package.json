@@ -20,7 +20,7 @@
     "url": "http://github.com/conditionizr/conditionizr.git"
   },
   "homepage": "https://github.com/conditionizr/conditionizr",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "year": "2013",
   "license": "MIT",
   "devDependencies": {
