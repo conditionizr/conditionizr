@@ -2,9 +2,9 @@
 
 Detects front-end environments and binds the results to the [conditionizr](http://conditionizr.com) Object. 1KB module for async callbacks, conditional script/style loading, automated polyfilling, inline boolean evaluations, classNames for styling overrides, custom tests and more.
 
-Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md) on Conditionizr version 4.x methods.
+Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md).
 
-By [@toddmotto](//twitter.com/toddmotto) and [@markgdyr](//twitter.com/markgdyr).
+> By [@toddmotto](//twitter.com/toddmotto) and [@markgdyr](//twitter.com/markgdyr).
 
 ## Installing with Bower
 Use the repository hook:
