@@ -4,5 +4,5 @@
  * as the `localhost` address name
  */
 conditionizr.add('localhost', [], function () {
-  return /(?:127.0.0.1|localhost)/.test(location.host);
+  return /(?:127\.0\.0\.1|localhost)/.test(location.host);
 });
