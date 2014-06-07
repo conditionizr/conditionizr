@@ -1,6 +1,6 @@
 # Conditionizr [![Build Status](https://travis-ci.org/conditionizr/conditionizr.png)](https://travis-ci.org/conditionizr/conditionizr)
 
-Detects front-end environments and binds the results to the [conditionizr](http://conditionizr.com) Object. 1KB module for async callbacks, conditional script/style loading, automated polyfilling, inline boolean evaluations, classNames for styling overrides, custom tests and more.
+Detects front-end environments and binds the results to the [conditionizr](http://conditionizr.com) Object. &lt;1KB module for async callbacks, conditional script/style loading, automated polyfilling, inline boolean evaluations, classNames for styling overrides, custom tests and more.
 
 Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/master/docs/DOCS.md).
 
@@ -44,7 +44,7 @@ This would then load browser specific tweaks, or you could use the global class 
 Custom tests can be bolted into the Conditionizr core and used with all the APIs, making your conditional coding seamless. Conditionizr will handle all the hard work for you, you just need to provide it a test that returns a boolean, true/false.
 
 ````js
-conditionizr.add('safari', [], function () {
+conditionizr.add('safari', function () {
   return /constructor/i.test(window.HTMLElement);
 });
 ````
@@ -92,6 +92,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 4.4.0
+  - Rewrite Jasmine unit tests
+  - Finish missing load/polyfill() and on() Jasmine unit tests
+  - Modular rewrite, reduce bloat
+  - Performance enhancements, less loops, clutter, reduction in size
+  - Enhance private load() method for faster loading
+  - Breaking change: No add dependency array, config only
 - 4.3.0
   - Add CommonJS/Browserify
   - AMD bugfix

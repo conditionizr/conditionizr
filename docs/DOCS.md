@@ -1,12 +1,12 @@
-# Conditionizr v4.0.0 Docs
+# Conditionizr v4.x.x Docs
 
-Conditionizr has several public APIs, _.config()_, _.add()_, _.on()_, _.load()_ and  _.polyfill()_. This document covers each of their usage and some general usage tips for Conditionizr.
+Conditionizr has several public methods, _.config()_, _.add()_, _.on()_, _.load()_ and  _.polyfill()_. This document covers each of their usage and some general usage tips for Conditionizr.
 
 ## Overview
 With previous versions of Conditionizr, tests were limited and loaded internally. Conditionizr now ships as just a fully-fledged API that you can add unlimited tests onto. Conditionizr adds those tests to it's internal Object and returns it for you to bolt into in the DOM, for ultimate optimisation.
 
-## .config() API
-The config API stems from previous Conditionizr versions, but with added flexibility for dependency loading. After adding your own tests, you'll be able to configure what each test executes. Your options are to be specified in an array; _script_, _style_, _class_. Declaring _script_ inside the array will load a script for the specified browser, choosing a _style_ will load a style, and choosing _class_ will add the browser's class to the `<html>` element.
+## conditionizr.config()
+The config method stems from previous Conditionizr versions, but with added flexibility for dependency loading. After adding your own tests, you'll be able to configure what each test executes. Your options are to be specified in an array; _script_, _style_, _class_. Declaring _script_ inside the array will load a script for the specified browser, choosing a _style_ will load a style, and choosing _class_ will add the browser's class to the `<html>` element.
 
 #### Basic .config() setup
 
@@ -14,9 +14,9 @@ An example config for Safari:
 
 ````js
 conditionizr.config({
-    assets: '/path/to/my/assets/',
+    assets: 'path/to/my/assets/',
     tests: {
-        'safari': ['script', 'style', 'class']
+        safari: ['script', 'style', 'class']
     }
 });
 ````
@@ -26,8 +26,8 @@ When the Safari browser is in use, the following output will be rendered:
 ````html
 <html class="safari">
   <head>
-    <script src="path/to/my/assets/js/safari.js"></script>
-    <link href="path/to/my/assets/css/safari.css" rel="stylesheet">
+    <script src="path/to/my/assets/safari.js"></script>
+    <link href="path/to/my/assets/safari.css" rel="stylesheet">
   </head>
 </html>
 ````
@@ -65,14 +65,14 @@ conditionizr.config({
 Dependencies can also be specified inline when using the _.add()_ API, which is covered next.
 
 
-## .add() API
-The first rule of the _.add()_ API is that all tests must return a _boolean_ (true or false). No tests are located internally to Conditionizr, they're all added using the public API.
+## conditionizr.add()
+The first rule of the _.add()_ is that all tests must return a _boolean_ (true or false). No tests are located internally to Conditionizr, they're all added using the public API.
 
 #### Adding a test
 An example of adding a test for Safari:
 
 ````js
-conditionizr.add('safari', [], function () {
+conditionizr.add('safari', function () {
     return /constructor/i.test(window.HTMLElement);
 });
 ````
@@ -90,7 +90,7 @@ conditionizr.add('safari', ['script', 'style', 'class'], function () {
 
 If no dependencies are to be added initially, you can leave the array empty and use the _.config()_ API for test configurations. To use the _.config()_ API, however, to manage your tests, you must add all tests before the _.config()_ API for them to register in the Conditionizr object.
 
-## .on() API
+## conditionizr.on()
 Once you've got tests added, they'll immediately be available using the _.on()_ API. The _.on()_ API is a special function that allows you to run a callback for when a current environment is _true_. 
 
 #### Environment callbacks
@@ -136,23 +136,23 @@ if (conditionizr.safari || conditionizr.chrome) {
 
 Object tests can be used anywhere after tests are defined as they are globally accessible, which makes integration with your code seamless.
 
-## .polyfill() API
-The _.polyfill()_ API allows for seamless asset loading based on your environment. For instance, taking the popular _HTML5Shiv.js_, we can load this for legacy IE easily. In this case, our tests are IE browsers which we tell Conditionizr to load this Polyfill for all tests inside the array:
+## conditionizr.polyfill()
+The _.polyfill()_ method allows for seamless asset loading based on your environment. For instance, taking the popular _HTML5Shiv.js_, we can load this for legacy IE easily. In this case, our tests are IE browsers which we tell Conditionizr to load this Polyfill for all tests inside the array:
 
 ````js
 conditionizr.polyfill('//html5shiv.googlecode.com/svn/trunk/html5.js', ['ie6', 'ie7', 'ie8']);
 ````
 
-## .load() API
-The _.load()_ API was introduced to distinguish between what is a polyfill and what is a utility/library/tool. The _.load()_ API mimics the _.polyfill()_ API.
+## conditionizr.load()
+The _.load()_ method was introduced to distinguish between what is a polyfill and what is a utility/library/tool. The _.load()_ method mimics the _.polyfill()_ method.
 
-The _.load()_ API could be used for loading something such as a touch library for iOS devices, as an example:
+The _.load()_ method could be used for loading something such as a touch library for iOS devices, as an example:
 
 ````js
 conditionizr.load('//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min.js', ['ios']);
 ````
 
-Both the _.polyfill()_ and _.load()_ API also accepts _.css_ documents, and detects them automatically for load injection, to load a CSS document you could do:
+Both the _.polyfill()_ and _.load()_ method also accepts _.css_ documents, and detects them automatically for load injection, to load a CSS document you could do:
 
 ````js
 conditionizr.load('//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css', ['ie6', 'ie7', 'ie8']);
@@ -164,8 +164,7 @@ A look at the ideal order of configuration.
 #### Ideal setup for multiple tests
 
 ````js
-// add test (with empty array)
-conditionizr.add('safari', [], function () {
+conditionizr.add('safari', function () {
     return /constructor/i.test(window.HTMLElement);
 });
 
@@ -175,38 +174,6 @@ conditionizr.config({
     tests: {
         'safari': ['script', 'style', 'class']
     }
-});
-
-// use .on() callbacks
-conditionizr.on('safari', function () {
-    //...
-});
-
-// or Object tests
-if (conditionizr.safari) {
-  //...
-}
-
-// load any polyfills
-conditionizr.polyfill('//html5shiv.googlecode.com/svn/trunk/html5.js', ['ie6', 'ie7', 'ie8']);
-
-// load any generic assets
-conditionizr.load('//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min.js', ['ios']);
-````
-
-#### Without .config() tests
-
-If you want to exclude the _tests_ setup inside the _.config()_ module for brevity, you could do the following and specify the dependencies inline:
-
-````js
-// define assets path only
-conditionizr.config({
-    assets: '/path/to/my/assets/'
-});
-
-// add test with array dependencies
-conditionizr.add('safari', ['script', 'style', 'class'], function () {
-    return /constructor/i.test(window.HTMLElement);
 });
 
 // use .on() callbacks

@@ -1,6 +1,6 @@
 {
   "name": "conditionizr",
-  "title": "Conditionizr",
+  "title": "conditionizr",
   "description": "Detecting front-end environments and conditionally loading assets",
   "authors": [{
     "name": "Todd Motto",
@@ -20,8 +20,8 @@
     "url": "http://github.com/conditionizr/conditionizr.git"
   },
   "homepage": "https://github.com/conditionizr/conditionizr",
-  "version": "4.3.0",
-  "year": "2013",
+  "version": "4.4.0",
+  "year": "2014",
   "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.1",
