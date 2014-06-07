@@ -29,9 +29,8 @@
   };
 
   conditionizr.load = conditionizr.polyfill = function (file, props) {
-    var task = /\.js$/.test(file) ? 'script' : 'style';
     for (var i = props.length; i--;) {
-      conditionizr[props[i]] && load(file, [task], true);
+      conditionizr[props[i]] && load(file, [/\.js$/.test(file) ? 'script' : 'style'], true);
     }
   };
 
