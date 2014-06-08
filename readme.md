@@ -1,4 +1,4 @@
-# Conditionizr [![Build Status](https://travis-ci.org/conditionizr/conditionizr.png)](https://travis-ci.org/conditionizr/conditionizr)
+# Conditionizr.js [![Build Status](https://travis-ci.org/conditionizr/conditionizr.png)](https://travis-ci.org/conditionizr/conditionizr)
 
 Detects front-end environments and binds the results to the [conditionizr](http://conditionizr.com) Object. &lt;1KB module for async callbacks, conditional script/style loading, automated polyfilling, inline boolean evaluations, classNames for styling overrides, custom tests and more.
 
@@ -10,7 +10,7 @@ Read the developer [documentation](//github.com/conditionizr/conditionizr/blob/m
 Use the repository hook:
 
 ```
-bower install https://github.com/conditionizr/conditionizr.git
+bower install conditionizr
 ```
 
 ## Core and methods
@@ -88,12 +88,13 @@ conditionizr.load('//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min.j
 ````
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Grunt.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Gulp.
 
 ## Release history
 
 - 4.4.0
-  - Rewrite Jasmine unit tests
+  - Rewrite Jasmine unit tests, Karma spec runner, better testing
+  - Convert to Gulp.js
   - Finish missing load/polyfill() and on() Jasmine unit tests
   - Modular rewrite, reduce bloat
   - Performance enhancements, less loops, clutter, reduction in size
