@@ -1,38 +1,27 @@
 {
   "name": "conditionizr",
-  "title": "conditionizr",
+  "version": "4.4.0",
   "description": "Detecting front-end environments and conditionally loading assets",
-  "authors": [{
-    "name": "Todd Motto",
-    "email": "todd@toddmotto.com",
-    "twitter": "@toddmotto",
-    "url": "http://toddmotto.com",
-    "github": "https://github.com/toddmotto"
-  },{
-    "name": "Mark Goodyear",
-    "email": "hello@markgoodyear.com",
-    "twitter": "@markgdyr",
-    "url": "http://markgoodyear.com",
-    "github": "https://github.com/markgoodyear"
-  }],
+  "author": "@toddmotto, @markgdyr",
+  "license": "MIT",
+  "homepage": "https://github.com/conditionizr",
   "repository": {
     "type": "git",
     "url": "http://github.com/conditionizr/conditionizr.git"
   },
-  "homepage": "https://github.com/conditionizr/conditionizr",
-  "version": "4.4.0",
-  "year": "2014",
-  "license": "MIT",
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-uglify": "~0.2.4",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-connect": "~0.5.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-jasmine": "~0.5.2",
-    "matchdep": "~0.3.0"
+    "gulp": "~3.7.0",
+    "gulp-uglify": "~0.3.0",
+    "gulp-rename": "~1.1.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-header": "^1.0.2",
+    "gulp-jshint": "^1.6.1",
+    "jshint-stylish": "^0.2.0",
+    "gulp-karma": "0.0.4",
+    "karma": "^0.12.16",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-spec-reporter": "0.0.13",
+    "gulp-plumber": "~0.6.2"
   }
 }

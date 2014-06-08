@@ -1,17 +1,13 @@
-# Node
-node_modules
+#
+# Commonly ignored
 
-## OS X
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V100
-.Trashes
+node_modules/
+.sass-cache/
+.idea
+*.sublime-*
 
-## Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+#
+# Generated / fetched files
+
+dist/
+libs/
