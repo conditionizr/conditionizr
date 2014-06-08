@@ -1,4 +1,4 @@
-# Conditionizr.js [![Build Status](https://travis-ci.org/conditionizr/conditionizr.png)](https://travis-ci.org/conditionizr/conditionizr)
+# conditionizr.js [![Build Status](https://travis-ci.org/conditionizr/conditionizr.svg)](https://travis-ci.org/conditionizr/conditionizr)
 
 Detects front-end environments and binds the results to the [conditionizr](http://conditionizr.com) Object. &lt;1KB module for async callbacks, conditional script/style loading, automated polyfilling, inline boolean evaluations, classNames for styling overrides, custom tests and more.
 
