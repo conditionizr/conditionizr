@@ -79,16 +79,7 @@ conditionizr.add('safari', function () {
 
 This is a successful browser detect for Safari, and will add your test to the Conditionizr core. Conditionizr will confirm _true_ when Safari is being used with this test, and false when it isn't.
 
-#### Inline dependency loading using .add()
-You may have noticed the empty array in the first line of the _.add()_ API. This array can be populated with _script_, _style_ and _class_ as per the config. This method can load dependencies as a standalone, without the need for the _.config()_ API. An example could be:
-
-````js
-conditionizr.add('safari', ['script', 'style', 'class'], function () {
-    return /constructor/i.test(window.HTMLElement);
-});
-````
-
-If no dependencies are to be added initially, you can leave the array empty and use the _.config()_ API for test configurations. To use the _.config()_ API, however, to manage your tests, you must add all tests before the _.config()_ API for them to register in the Conditionizr object.
+Inline dependency management has been removed.
 
 ## conditionizr.on()
 Once you've got tests added, they'll immediately be available using the _.on()_ API. The _.on()_ API is a special function that allows you to run a callback for when a current environment is _true_. 
