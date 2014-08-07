@@ -1,6 +1,6 @@
 {
   "name": "conditionizr",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "description": "Detecting front-end environments and conditionally loading assets",
   "author": "@toddmotto, @markgdyr",
   "license": "MIT",

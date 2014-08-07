@@ -22,15 +22,22 @@ describe('conditionizr', function () {
       conditionizr.add('fakeaddfalse', function () {
         return false;
       });
+      conditionizr.add('inlineaddtrue', true);
+      conditionizr.add('inlineaddfalse', false);
     });
 
     it('should add an object property', function () {
       expect('fakeaddtrue' in conditionizr).toBe(true);
     });
 
-    it('should output a boolean value', function () {
+    it('should return a Boolean', function () {
       expect(conditionizr.fakeaddtrue).toBe(true);
       expect(conditionizr.fakeaddfalse).toBe(false);
+    });
+
+    it('should pass in a Boolean without callback', function () {
+      expect(conditionizr.inlineaddtrue).toBe(true);
+      expect(conditionizr.inlineaddfalse).toBe(false);
     });
 
   });

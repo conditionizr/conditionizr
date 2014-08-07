@@ -1,6 +1,4 @@
 /*!
  * Mac
  */
-conditionizr.add('mac', function () {
-    return /mac/i.test(navigator.platform);
-});
+conditionizr.add('mac', /mac/i.test(navigator.platform));

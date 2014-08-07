@@ -21,7 +21,7 @@
   };
 
   conditionizr.add = function (prop, fn) {
-    conditionizr[prop] = fn();
+    conditionizr[prop] = typeof fn === 'function' ? fn() : fn;
   };
 
   conditionizr.on = function (prop, fn) {

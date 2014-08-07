@@ -41,7 +41,15 @@ This would then load browser specific tweaks, or you could use the global class 
 ````
 
 #### .add()
-Custom tests can be bolted into the Conditionizr core and used with all the APIs, making your conditional coding seamless. Conditionizr will handle all the hard work for you, you just need to provide it a test that returns a boolean, true/false.
+Custom tests can be passed into the Conditionizr core and used with all APIs, making your conditional coding seamless. Conditionizr will handle all the hard work for you, you just need to provide it a test that returns a boolean, true/false. This can be done via a `function` callback or inline `Boolean`.
+
+##### Inline syntax
+
+````js
+conditionizr.add('safari',  /constructor/i.test(window.HTMLElement));
+````
+
+##### Function syntax
 
 ````js
 conditionizr.add('safari', function () {
@@ -92,6 +100,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 4.5.0
+  - Add new options inline Boolean syntax, pass tests in inline or as callback function
 - 4.4.0
   - Rewrite Jasmine unit tests, Karma spec runner, better testing
   - Convert to Gulp.js
