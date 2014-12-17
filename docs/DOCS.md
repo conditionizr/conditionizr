@@ -33,7 +33,7 @@ When the Safari browser is in use, the following output will be rendered:
 ````
 
 #### Multiple tests setup
-When adding multiple tests, your config module will be a comma separated object:
+When adding multiple tests, your config module will be a comma-separated object:
 
 ````js
 conditionizr.config({
