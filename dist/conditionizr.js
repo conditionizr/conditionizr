@@ -1,4 +1,4 @@
-/*! conditionizr v4.5.0 | (c) 2015 @toddmotto, @markgdyr | https://github.com/conditionizr */
+/*! conditionizr v4.5.1 | (c) 2015 @toddmotto, @markgdyr | https://github.com/conditionizr */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(factory);
