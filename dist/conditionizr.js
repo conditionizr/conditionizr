@@ -1,4 +1,4 @@
-/*! conditionizr v4.5.0 | (c) 2014 @toddmotto, @markgdyr | https://github.com/conditionizr */
+/*! conditionizr v4.5.0 | (c) 2015 @toddmotto, @markgdyr | https://github.com/conditionizr */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(factory);
@@ -26,7 +26,7 @@
   };
 
   conditionizr.on = function (prop, fn) {
-    (conditionizr[prop] || /\!/.test(prop) && !conditionizr[prop.slice(1)]) && fn();
+    (conditionizr[prop] || /^!/.test(prop) && !conditionizr[prop.slice(1)]) && fn();
   };
 
   conditionizr.load = conditionizr.polyfill = function (file, props) {
