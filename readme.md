@@ -100,6 +100,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 4.5.1
+  - Improve regular expression for ignoring an environment
 - 4.5.0
   - Add new options inline Boolean syntax, pass tests in inline or as callback function
 - 4.4.0
